@@ -1,8 +1,8 @@
-package org.sgodden.tom.model.impl;
+package org.sgo.projectx.model.impl;
 
 import org.sgodden.tom.model.ICustomerOrder;
 
-public class CustomerOrder extends AbstractEntity implements ICustomerOrder {
+public class CustomerOrder extends AbstractIdentity implements ICustomerOrder {
 
     private String orderNumber;
 

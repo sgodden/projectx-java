@@ -1,4 +1,4 @@
-package org.sgodden.tom.model.impl;
+package org.sgo.projectx.model.impl;
 
 public abstract class AbstractEntity {
 

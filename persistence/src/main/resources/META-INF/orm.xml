@@ -1,0 +1,29 @@
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                 http://java.sun.com/xml/ns/persistence/orm/orm_2_0.xsd"
+                 version="2.0">
+
+    <mapped-superclass class="org.sgo.projectx.model.impl.AbstractIdentity" access="FIELD" metadata-complete="true">
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY"/>
+            </id>
+            <version name="version"/>
+        </attributes>
+    </mapped-superclass>
+
+    <entity class="org.sgo.projectx.model.impl.CustomerOrder" access="FIELD" metadata-complete="true">
+        <named-query name="CustomerOrder.findAll">
+            <query>select o from CustomerOrder o order by o.bookingDate</query>
+        </named-query>
+        <entity-listeners>
+            <entity-listener class="org.sgo.projectx.persistence.listener.ValidatorEntityListener"/>
+        </entity-listeners>
+        <attributes>
+            <basic name="customerReference"/>
+            <basic name="orderNumber"/>
+        </attributes>
+    </entity>
+
+</entity-mappings>
