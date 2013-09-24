@@ -52,7 +52,6 @@
     </repositories>
 
     <modules>
-        <module>model-api</module>
         <module>model</module>
         <module>persistence</module>
     </modules>

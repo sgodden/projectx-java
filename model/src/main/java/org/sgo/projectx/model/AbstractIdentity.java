@@ -1,9 +1,11 @@
-package org.sgo.projectx.model.impl;
+package org.sgo.projectx.model;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-public abstract class AbstractIdentity {
+import java.io.Serializable;
+
+public abstract class AbstractIdentity implements Serializable {
 
     private String id;
 
