@@ -15,7 +15,7 @@
 
     <entity class="org.sgo.projectx.model.impl.CustomerOrder" access="FIELD" metadata-complete="true">
         <named-query name="CustomerOrder.findAll">
-            <query>select o from CustomerOrder o order by o.bookingDate</query>
+            <query>select o from CustomerOrder o</query>
         </named-query>
         <entity-listeners>
             <entity-listener class="org.sgo.projectx.persistence.listener.ValidatorEntityListener"/>

@@ -18,11 +18,12 @@
 
     <context:property-placeholder system-properties-mode="OVERRIDE"/>
 
-    <bean id="baseRepo" abstract="true">
-        <constructor-arg value="orderManagement-${env}"/>
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="projectx"/>
     </bean>
 
-    <bean id="customerOrderRepository" class="org.sgodden.tom.persistence.CustomerOrderRepositoryImpl" parent="baseRepo"/>
-    <bean id="scannerRepository" class="org.sgodden.tom.persistence.ScannerRepositoryImpl" parent="baseRepo"/>
-
+    <!-- transaction manager -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
 </beans>
