@@ -1,16 +1,18 @@
-package org.sgo.projectx.persistence;
+package org.sgo.projectx.services.impl;
 
 import org.sgo.projectx.model.Customer;
 import org.sgo.projectx.model.CustomerOrder;
 import org.sgo.projectx.model.CustomerOrderLine;
+import org.sgo.projectx.persistence.CustomerOrderRepository;
+import org.sgo.projectx.persistence.CustomerRepository;
+import org.sgo.projectx.services.MyTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
 @Service
-public class Test {
+public class MyTestServiceImpl implements MyTestService {
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -18,8 +20,8 @@ public class Test {
     @Autowired
     private CustomerOrderRepository customerOrderRepository;
 
-    @Transactional
-    public void testIt1() {
+    @Override
+    public void doSomeStuff() {
         Customer customer = new Customer();
         customer.setName("Foo Customer");
         customerRepository.save(customer);
@@ -42,16 +44,14 @@ public class Test {
         order.getCustomerOrderLines().forEach((item) -> System.out.print(item.getDescriptionOfGoods()) );
 
         System.out.println(customerOrderRepository.findOne(order.getId()).getCustomer().getName());
-
     }
 
-    @Transactional
-    public void testIt2() {
+    @Override
+    public void doMoreStuff() {
         customerOrderRepository.findAll().forEach(order -> {
             order.getCustomerOrderLines().forEach(line -> {
                 System.out.println(line.getDescriptionOfGoods());
             });
         });
     }
-
 }
