@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
            http://cxf.apache.org/core  http://cxf.apache.org/schemas/core.xsd http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
-    <bean id="myService" class="org.sgodden.MyService"/>
+    <bean id="myService" class="org.sgodden.CustomerOrderService"/>
 
     <jaxrs:server address="/" beanNames="myService">
         <jaxrs:extensionMappings>

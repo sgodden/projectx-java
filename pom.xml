@@ -6,7 +6,7 @@
     <artifactId>projectx</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Project x</name>
+    <name>Project X</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,6 +55,7 @@
         <module>model</module>
         <module>persistence</module>
         <module>services</module>
+        <module>webapp</module>
         <!--<module>persistence-mongo</module>-->
     </modules>
 

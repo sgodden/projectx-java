@@ -11,7 +11,7 @@
 
     <artifactId>services</artifactId>
     <packaging>jar</packaging>
-    <name>Services</name>
+    <name>Project X - Services</name>
 
     <url>http://maven.apache.org</url>
 

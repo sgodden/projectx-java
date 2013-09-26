@@ -4,9 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
-    <artifactId>jdk8play</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>org.sgo.projectx</groupId>
+        <artifactId>projectx</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>webapp</artifactId>
+    <packaging>war</packaging>
+    <name>Project X - Web Application</name>
 
     <repositories>
         <repository>
@@ -19,6 +25,16 @@
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>org.sgo.projectx</groupId>
+            <artifactId>services</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sgo.projectx</groupId>
+            <artifactId>persistence</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
@@ -37,12 +53,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>4.0.0.BUILD-SNAPSHOT</version>
+            <version>${org.springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>4.0.0.BUILD-SNAPSHOT</version>
+            <version>${org.springframework.version}</version>
         </dependency>
 
     </dependencies>

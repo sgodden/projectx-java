@@ -11,7 +11,7 @@
 
     <artifactId>persistence</artifactId>
     <packaging>jar</packaging>
-    <name>JPA Persistence</name>
+    <name>Project X - Persistence</name>
 
     <url>http://maven.apache.org</url>
 
