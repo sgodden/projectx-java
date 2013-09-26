@@ -23,8 +23,10 @@
     <context:property-placeholder system-properties-mode="OVERRIDE"/>
 
     <mongo:mongo host="localhost" id="mongo"/>
-
-    <mongo:db-factory/>
+    <mongo:db-factory dbname="projectx" mongo-ref="mongo"/>
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg ref="mongoDbFactory" />
+    </bean>
 
     <mongo:repositories base-package="org.sgo.projectx.persistence_mongo" />
 </beans>

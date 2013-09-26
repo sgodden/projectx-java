@@ -19,7 +19,7 @@ import javax.persistence.EntityManagerFactory;
 public class BasicTestIT extends AbstractTestNGSpringContextTests {
 
     @Autowired
-    private ApplicationContext ctx;
+    private EntityManagerFactory entityManagerFactory;
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -29,8 +29,6 @@ public class BasicTestIT extends AbstractTestNGSpringContextTests {
 
     @Test
     public void basicTest() {
-        Assert.assertNotNull(ctx);
-
         Customer customer = new Customer();
         customer.setName("Foo Customer");
         customerRepository.save(customer);
@@ -41,9 +39,7 @@ public class BasicTestIT extends AbstractTestNGSpringContextTests {
         order.setCustomer(customer);
         customerOrderRepository.save(order);
 
-        System.out.println(order.getId());
-
-        System.out.println(customerOrderRepository.findOne("1").getCustomer().getName());
+        System.out.println(customerOrderRepository.findOne(order.getId()).getCustomer().getName());
     }
 
 }

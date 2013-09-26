@@ -40,7 +40,10 @@ public class BasicTestIT extends AbstractTestNGSpringContextTests {
 
         System.out.println(order.getId());
 
-        System.out.println(customerOrderRepository.findOne("1").getCustomer().getName());
+        order = customerOrderRepository.findOne(order.getId());
+
+        Assert.assertEquals(order.getCustomerReference(), "FOO");
+        Assert.assertEquals(order.getCustomer().getId(), customer.getId());
     }
 
 }

@@ -53,8 +53,8 @@
 
     <modules>
         <module>model</module>
-        <!--<module>persistence</module>-->
-        <module>persistence-mongo</module>
+        <module>persistence</module>
+        <!--<module>persistence-mongo</module>-->
     </modules>
 
     <build>
