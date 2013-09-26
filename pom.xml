@@ -14,7 +14,7 @@
         <failsafe.version>2.16</failsafe.version>
         <org.springframework.version>4.0.0.BUILD-SNAPSHOT</org.springframework.version>
         <org.hibernate.version>3.6.7.Final</org.hibernate.version>
-        <slf4j.version>1.5.10</slf4j.version>
+        <slf4j.version>1.7.5</slf4j.version>
         <jackson.version>1.9.1</jackson.version>
         <h2.version>1.2.124</h2.version>
         <testng.version>6.2</testng.version>

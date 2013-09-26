@@ -19,6 +19,7 @@ public class JettyMain {
 
             ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
             context.setContextPath("/");
+            System.out.println(new FileResource(new File("src/main/webapp").toURI().toURL()));
             context.setBaseResource(new FileResource(new File("src/main/webapp").toURI().toURL()));
             server.setHandler(context);
 
