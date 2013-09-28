@@ -4,14 +4,9 @@
 
 angular.module('myApp.controllers', []).
   controller('CustomerOrdersController', function($scope, $http) {
-		$scope.orders = [
-			{
-				orderNumber: 'FOO'
-			},
-			{
-				orderNumber: 'BAR'
-			}
-		];
+		$http.get('/services/myservice').success(function(data) {
+			$scope.orders = data;
+		});
   })
   .controller('MyCtrl2', [function() {
 
