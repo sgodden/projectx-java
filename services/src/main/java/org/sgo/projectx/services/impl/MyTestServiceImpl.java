@@ -53,5 +53,12 @@ public class MyTestServiceImpl implements MyTestService {
                 System.out.println(line.getDescriptionOfGoods());
             });
         });
+
+        CustomerOrder order = customerOrderRepository.findAll().get(0);
+        CustomerOrderLine line = new CustomerOrderLine();
+        line.setDescriptionOfGoods("asdasasd");
+        order.addCustomerOrderLine(line);
+
+        System.out.println(line.getId());
     }
 }
