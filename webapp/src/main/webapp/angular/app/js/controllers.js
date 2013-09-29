@@ -3,8 +3,8 @@
 /* Controllers */
 
 angular.module('myApp.controllers', []).
-  controller('CustomerOrdersController', function($scope, $http) {
-		$http.get('/services/myservice').success(function(data) {
+  controller('CustomerOrdersController', function($scope, CustomerOrdersService) {
+		CustomerOrdersService.get(function(data) {
 			$scope.orders = data;
 		});
   })
