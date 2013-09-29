@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -42,6 +39,11 @@ public class CustomerOrderService {
     @Path("/{id}")
     public CustomerOrder findOne(@PathParam("id") String id) {
         return initialise(customerOrderRepository.findOne(id));
+    }
+
+    @POST
+    public void save(CustomerOrder order) {
+        customerOrderRepository.save(order);
     }
 
     private CustomerOrder initialise(CustomerOrder order) {

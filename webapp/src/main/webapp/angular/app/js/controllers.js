@@ -2,14 +2,17 @@
 
 angular.module('myApp.controllers', [])
 	.controller('CustomerOrdersController', function ($scope, CustomerOrdersService) {
-		CustomerOrdersService.query(function (response) {
-			$scope.orders = response;
-		});
+		$scope.orders = CustomerOrdersService.query();
 	})
 	.controller('CustomerOrderController', function ($scope, $routeParams, CustomerOrdersService) {
-		CustomerOrdersService.get({id: $routeParams.id}, function (response) {
-			$scope.order = response;
-		});
+		$scope.order = CustomerOrdersService.get({id: $routeParams.id});
+
+		$scope.submit = function() {
+			console.log($scope.order.orderNumber);
+			$scope.order.$save(function() {
+				window.location.href = '#/orders';
+			});
+		};
 	})
 	.controller('MyCtrl1', function () {
 
