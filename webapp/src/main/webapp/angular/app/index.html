@@ -10,17 +10,14 @@
   <ul class="menu">
     <li><a href="#/view1">view1</a></li>
     <li><a href="#/view2">view2</a></li>
+    <li><a href="#/orders">List Orders</a></li>
   </ul>
 
-  <div ng-view></div>
+  <div ng-view>
+
+  </div>
 
   <div>Angular seed app: v<span app-version></span></div>
-
-	<div ng-controller="CustomerOrdersController">
-		<ul>
-			<li ng-repeat="order in orders">{{order.orderNumber}}</li>
-		</ul>
-	</div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
