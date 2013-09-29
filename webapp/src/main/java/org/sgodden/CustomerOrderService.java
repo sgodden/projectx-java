@@ -1,14 +1,17 @@
 package org.sgodden;
 
+import org.sgo.projectx.model.Customer;
 import org.sgo.projectx.model.CustomerOrder;
 import org.sgo.projectx.model.CustomerOrderLine;
 import org.sgo.projectx.persistence.CustomerOrderRepository;
+import org.sgo.projectx.persistence.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.math.BigDecimal;
 import java.util.List;
@@ -21,6 +24,8 @@ public class CustomerOrderService {
 
     @Autowired
     private CustomerOrderRepository customerOrderRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
     @GET
     public List<CustomerOrder> get() {
@@ -29,13 +34,30 @@ public class CustomerOrderService {
         }
         List<CustomerOrder> ret = customerOrderRepository.findAll();
         // initialise lazy stuff in the transaction - this is crap you would normally map to a specific DTO to return over the wire
-        ret.forEach( order -> order.getCustomerOrderLines().forEach( line -> {} ));
+        ret.forEach(order -> initialise(order));
         return ret;
     }
 
+    @GET
+    @Path("/{id}")
+    public CustomerOrder findOne(@PathParam("id") String id) {
+        return initialise(customerOrderRepository.findOne(id));
+    }
+
+    private CustomerOrder initialise(CustomerOrder order) {
+        order.getCustomer().getName();
+        order.getCustomerOrderLines().forEach(line -> {});
+        return order;
+    }
+
     private void generateOrders() {
+        Customer customer = new Customer();
+        customer.setName("FINDUS FOOBAR");
+        customerRepository.save(customer);
+
         for (int i = 1; i < 10; i++) {
             CustomerOrder order = new CustomerOrder();
+            order.setCustomer(customer);
             order.setOrderNumber("ORD000" + i);
             order.setCustomerReference("CREF000" + i);
 
