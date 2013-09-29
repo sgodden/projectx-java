@@ -1,13 +1,15 @@
 'use strict';
 
-/* Controllers */
-
-angular.module('myApp.controllers', []).
-  controller('CustomerOrdersController', function($scope, CustomerOrdersService) {
-		CustomerOrdersService.get(function(data) {
+angular.module('myApp.controllers', [])
+	.controller('CustomerOrdersController', function($scope, CustomerOrdersService) {
+		CustomerOrdersService.query(function(data) {
 			$scope.orders = data;
 		});
   })
-  .controller('MyCtrl2', [function() {
+  .controller('MyCtrl1', function() {
 
-  }]);
+  })
+  .controller('MyCtrl2', function() {
+
+  })
+;
