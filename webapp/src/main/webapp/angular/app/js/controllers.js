@@ -6,7 +6,7 @@ angular.module('myApp.controllers', ['$strap.directives'])
 	})
 	.controller('CustomerOrderController', function ($scope, $routeParams, CustomerOrdersService) {
 		var order = CustomerOrdersService.get({id: $routeParams.id});
-		//order.bookingDate = new Date(order.bookingDate);
+		order.bookingDate = new Date(order.bookingDate);
 		$scope.order = order;
 
 		$scope.submit = function() {
