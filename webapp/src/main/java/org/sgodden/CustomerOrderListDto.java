@@ -1,9 +1,20 @@
-package org.sgodden.model;
+package org.sgodden;
 
-public class CustomerOrder {
+import org.dozer.DozerBeanMapper;
+import org.dozer.Mapper;
+import org.sgo.projectx.model.CustomerOrder;
+
+import java.io.Serializable;
+
+public class CustomerOrderListDto implements Serializable {
     private String id;
     private String orderNumber;
     private String customerReference;
+
+    public CustomerOrderListDto(CustomerOrder order) {
+        Mapper mapper = new DozerBeanMapper();
+        mapper.map(order, this);
+    }
 
     public String getId() {
         return id;

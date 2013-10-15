@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.ws.rs.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("/myservice")
@@ -25,19 +26,21 @@ public class CustomerOrderService {
     private CustomerRepository customerRepository;
 
     @GET
-    public List<CustomerOrder> get() {
+    public List<CustomerOrderListDto> get() {
+        // TODO - replace with use of liquibase
         if (customerOrderRepository.count() == 0) {
             generateOrders();
         }
-        List<CustomerOrder> ret = customerOrderRepository.findAll();
-        // initialise lazy stuff in the transaction - this is crap you would normally map to a specific DTO to return over the wire
-        ret.forEach(order -> initialise(order));
+        // TODO - surely there are map and filter operations coming in JDK 8 which can reduce this to one line
+        List<CustomerOrderListDto> ret = new ArrayList<>();
+        customerOrderRepository.findAll().forEach(order -> ret.add(new CustomerOrderListDto(order)));
         return ret;
     }
 
     @GET
     @Path("/{id}")
     public CustomerOrder findOne(@PathParam("id") String id) {
+        // TODO - suitable DTO for the entity
         return initialise(customerOrderRepository.findOne(id));
     }
 
