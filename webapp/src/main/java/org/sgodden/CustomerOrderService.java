@@ -1,5 +1,6 @@
 package org.sgodden;
 
+import org.joda.time.DateTime;
 import org.sgo.projectx.model.Customer;
 import org.sgo.projectx.model.CustomerOrder;
 import org.sgo.projectx.model.CustomerOrderLine;
@@ -65,6 +66,7 @@ public class CustomerOrderService {
             order.setCustomer(customer);
             order.setOrderNumber("ORD000" + i);
             order.setCustomerReference("CREF000" + i);
+            order.setBookingDate(new DateTime());
 
             CustomerOrderLine line = new CustomerOrderLine();
             line.setQuantity(new BigDecimal(i));

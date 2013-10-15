@@ -1,11 +1,13 @@
 'use strict';
 
-angular.module('myApp.controllers', [])
+angular.module('myApp.controllers', ['$strap.directives'])
 	.controller('CustomerOrdersController', function ($scope, CustomerOrdersService) {
 		$scope.orders = CustomerOrdersService.query();
 	})
 	.controller('CustomerOrderController', function ($scope, $routeParams, CustomerOrdersService) {
-		$scope.order = CustomerOrdersService.get({id: $routeParams.id});
+		var order = CustomerOrdersService.get({id: $routeParams.id});
+		//order.bookingDate = new Date(order.bookingDate);
+		$scope.order = order;
 
 		$scope.submit = function() {
 			console.log($scope.order.orderNumber);

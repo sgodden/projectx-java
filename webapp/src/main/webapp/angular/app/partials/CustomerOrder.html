@@ -1,5 +1,17 @@
 <form ng-submit="submit()">
-	<label>Order number</label>
-	<input type="text" ng-model="order.orderNumber" ng-change="changed"/>
-	<input type="submit"/>
+	<div class="formGroup">
+		<label>Order number</label>
+		<input type="text" ng-model="order.orderNumber" ng-change="changed" id="orderNumber"/>
+	</div>
+	<div class="formGroup">
+		<label for="customerReference">Customer Reference</label>
+		<input id="customerReference" type="text" ng-model="order.customerReference" ng-change="changed"/>
+	</div>
+	<div class="formGroup">
+		<label for="bookingDate">Booking Date</label>
+		<div class="control-group input-append">
+			<input type="text" ng-model="order.bookingDate" data-date-format="dd/mm/yyyy" bs-datepicker id="bookingDate">
+			<button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+		</div>
+	</div>
 </form>

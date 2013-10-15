@@ -19,7 +19,7 @@
         </attributes>
     </entity>
 
-    <entity class="org.sgo.projectx.model.CustomerOrder" access="FIELD" metadata-complete="true">
+    <entity class="org.sgo.projectx.model.CustomerOrder" access="FIELD" metadata-complete="false">
         <named-query name="CustomerOrder.findAll">
             <query>select o from CustomerOrder o</query>
         </named-query>
@@ -29,6 +29,7 @@
         <attributes>
             <basic name="customerReference"/>
             <basic name="orderNumber"/>
+            <basic name="bookingDate"/>
             <many-to-one name="customerRef">
                 <join-column name="fk_customer"/>
             </many-to-one>
