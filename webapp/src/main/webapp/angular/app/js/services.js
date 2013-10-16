@@ -5,26 +5,14 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-angular.module('myApp.services', []).
-	factory('CustomerOrdersService',function ($http) {
-		return {
-			query: function(params) {
-				return $http({
-					method: "GET",
-					url: "/services/myservice/"
-				});
-			},
-			get: function(params) {
-				return $http({
-					method: "GET",
-					url: "/services/myservice/" + params.id,
-					transformResponse: function(response) {
-						var order = JSON.parse(response);
-						order.bookingDate = new Date(order.bookingDate);
-						return order;
-					}
-				});
-			}
-		}
+angular.module('myApp.services', ['ngResource']).
+	factory('CustomerOrdersService',function ($resource) {
+		return $resource('/services/myservice/:id', null, {
+			get: {method: 'GET', transformResponse: function(response) {
+				var order = JSON.parse(response);
+				order.bookingDate = new Date(order.bookingDate);
+				return order;
+			}}
+		});
 	}).
 	value('version', '0.1');
