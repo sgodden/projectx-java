@@ -1,10 +1,12 @@
 package org.sgodden;
 
-import org.codehaus.jackson.map.SerializationConfig;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
 
-public class ObjectMapper extends org.codehaus.jackson.map.ObjectMapper {
+public class ObjectMapper extends com.fasterxml.jackson.databind.ObjectMapper {
     public ObjectMapper() {
         super();
-        this.enable(SerializationConfig.Feature.INDENT_OUTPUT);
+        registerModule(new JodaModule());
+        this.enable(SerializationFeature.INDENT_OUTPUT);
     }
 }

@@ -28,3 +28,11 @@
   content: "";
   padding: 0;
 }
+
+.customer-order-form {
+	width: 20em;
+}
+
+body {
+	padding: 1em;
+}
