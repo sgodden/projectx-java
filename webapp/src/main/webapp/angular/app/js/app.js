@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['ui.date', 'ngRoute', 'myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers']).
+angular.module('myApp', ['$strap.directives', 'ngRoute', 'myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/orders', {templateUrl: 'partials/ListCustomerOrders.html', controller: 'CustomerOrdersController'});
     $routeProvider.when('/orders/:id', {templateUrl: 'partials/CustomerOrder.html', controller: 'CustomerOrderController'});

@@ -10,7 +10,7 @@
 	<div class="formGroup">
 		<label for="bookingDate">Booking Date</label>
 		<div class="control-group input-append">
-			<input type="text" ng-model="order.bookingDate" ui-date id="bookingDate">
+			<input type="text" ng-model="order.bookingDate" bs-datepicker data-date-format="dd/mm/yyyy" id="bookingDate">
 			<!-- TODO - date format does not seem to work - may be incompatible with latest angular API -->
 			<!--<input type="text" ng-model="order.bookingDate" ui-date ui-date-format="dd/MM/yyyy" id="bookingDate">-->
 			<button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>

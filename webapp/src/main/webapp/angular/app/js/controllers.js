@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.controllers', ['ui.date'])
+angular.module('myApp.controllers', ['$strap.directives'])
 	.controller('CustomerOrdersController', function ($scope, CustomerOrdersService) {
 		$scope.orders = CustomerOrdersService.query();
 	})
